@@ -1,0 +1,3 @@
+INSERT INTO dives (path) 
+VALUES (:path)
+ON CONFLICT DO NOTHING;
