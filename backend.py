@@ -3,11 +3,15 @@
 import datetime as dt
 import multiprocessing
 from pathlib import Path
-from typing import Optional, Tuple, Iterable, List
+from typing import Optional, Tuple, Iterable, List, Dict
 from hashlib import md5
-
+from label_studio_sdk.client import LabelStudio
+from label_studio_sdk.projects.client_ext import ProjectExt
+from label_studio_sdk.types import BaseUser
 import numpy as np
 from PIL import ExifTags, Image
+from io import BytesIO
+import json
 
 def get_image_date(path: Path) -> Optional[dt.datetime]:
     try:
@@ -62,3 +66,32 @@ def get_camera_sns(paths: Iterable[Path]) -> List[str]:
     with multiprocessing.Pool() as pool:
         sns = pool.map(get_camera_sn, paths)
     return sns
+
+def get_project_export(project_id: int, label_studio_api_key: str, label_studio_host: str) -> Dict:
+    """Retrieves the project export
+
+    Args:
+        project_id (int): Project to export
+
+    Returns:
+        Dict: LabelStudio project export
+    """
+    client = LabelStudio(
+        base_url=label_studio_host,
+        api_key=label_studio_api_key
+    )
+    response = client.projects.exports.create(
+        project_id
+    )
+    if response.status != 'completed':
+        raise RuntimeError('Snapshot failed')
+
+    blob_iterator = client.projects.exports.download(
+        project_id,
+        export_pk=response.id
+    )
+    blob = BytesIO()
+    for chunk in blob_iterator:
+        blob.write(chunk)
+    blob.seek(0)
+    return json.load(blob)

@@ -3,3 +3,5 @@ pillow
 ipykernel
 numpy
 tqdm
+dynaconf
+label-studio-sdk

@@ -1,0 +1,7 @@
+[label_studio]
+laser_project_id = 10
+host = 'labeler.e4e.ucsd.edu'
+
+[data]
+db_host = "e4e-nas.ucsd.edu"
+db_path = "fishsense_data/REEF/processing.db"
