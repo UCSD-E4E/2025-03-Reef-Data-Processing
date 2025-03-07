@@ -2,10 +2,10 @@ import argparse
 import contextlib
 import sqlite3
 from pathlib import Path
-
+import multiprocessing
 from tqdm.auto import tqdm
 
-from backend import get_dive_checksum, get_dive_date, get_camera_sns
+from backend import get_dive_checksum, get_dive_date, get_camera_sns, do_image_checksums
 
 
 class Processor:
@@ -35,6 +35,7 @@ class Processor:
         self.get_dive_checksums(data_root=data_root)
         self.extract_unique_dives()
         self.get_camera_sn(data_root=data_root)
+        self.__do_image_checksums(data_root)
 
     def get_camera_sn(self, data_root: Path):
         with contextlib.closing(sqlite3.connect(self.__db_name)) as con, \
@@ -103,6 +104,25 @@ class Processor:
                 curr.close()
         finally:
             con.close()
+
+
+    def __do_image_checksums(self, data_root: Path):
+        with contextlib.closing(sqlite3.connect(self.__db_name)) as con, \
+                contextlib.closing(con.cursor()) as cur:
+            cur: sqlite3.Cursor
+            cur.execute(self.load_script('sql/select_next_image_for_cksum.sql'))
+            paths = [data_root.joinpath(row[0]) for row in cur.fetchall()]
+
+            params = do_image_checksums(paths)
+
+            cur.executemany(
+                self.load_script('sql/update_image_cksum.sql'),
+                ({
+                    'checksum': cksum,
+                    'path': path.relative_to(data_root).as_posix()
+                } for path, cksum in params.items())
+            )
+
     
     def get_dive_dates(self, data_root: Path):
         try:

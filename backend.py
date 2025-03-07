@@ -1,5 +1,6 @@
 '''Discovery backend
 '''
+import sqlite3
 import datetime as dt
 import multiprocessing
 from pathlib import Path
@@ -12,7 +13,9 @@ import numpy as np
 from PIL import ExifTags, Image
 from io import BytesIO
 import json
-
+import multiprocessing.pool
+import queue
+import threading
 def get_image_date(path: Path) -> Optional[dt.datetime]:
     try:
         img = Image.open(path)
@@ -95,3 +98,8 @@ def get_project_export(project_id: int, label_studio_api_key: str, label_studio_
         blob.write(chunk)
     blob.seek(0)
     return json.load(blob)
+
+def do_image_checksums(paths: List[Path]) -> Dict[Path, str]:
+    with multiprocessing.Pool() as pool:
+        checksums = pool.map(get_file_checksum, paths)
+    return {paths[idx]: checksums[idx] for idx in range(len(paths))}

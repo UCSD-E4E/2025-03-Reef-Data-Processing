@@ -16,3 +16,5 @@ CREATE TABLE IF NOT EXISTS canonical_dives (
     multiple_date NUMERIC,
     checksum TEXT
 );
+ALTER TABLE images
+    ADD image_md5 TEXT;
