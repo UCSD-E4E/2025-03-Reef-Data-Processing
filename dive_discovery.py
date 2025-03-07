@@ -110,18 +110,26 @@ class Processor:
         with contextlib.closing(sqlite3.connect(self.__db_name)) as con, \
                 contextlib.closing(con.cursor()) as cur:
             cur: sqlite3.Cursor
-            cur.execute(self.load_script('sql/select_next_image_for_cksum.sql'))
-            paths = [data_root.joinpath(row[0]) for row in cur.fetchall()]
+            cur.execute(self.load_script('sql/select_unique_dives.sql'))
+            dives = [row[0] for row in cur.fetchall()]
+            for dive in tqdm(dives, 'Compute Image Checksums'):
+                cur.execute(
+                    self.load_script('sql/select_next_image_for_cksum.sql'),
+                    {
+                        'dive': dive
+                    })
+                paths = [data_root.joinpath(row[0]) for row in cur.fetchall()]
 
-            params = do_image_checksums(paths)
+                params = do_image_checksums(paths)
 
-            cur.executemany(
-                self.load_script('sql/update_image_cksum.sql'),
-                ({
-                    'checksum': cksum,
-                    'path': path.relative_to(data_root).as_posix()
-                } for path, cksum in params.items())
-            )
+                cur.executemany(
+                    self.load_script('sql/update_image_cksum.sql'),
+                    ({
+                        'checksum': cksum,
+                        'path': path.relative_to(data_root).as_posix()
+                    } for path, cksum in params.items())
+                )
+                con.commit()
 
     
     def get_dive_dates(self, data_root: Path):

@@ -1,3 +1,3 @@
 SELECT path
 FROM images
-WHERE images.image_md5 ISNULL;
+WHERE images.image_md5 ISNULL and dive = :dive;
