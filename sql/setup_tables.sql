@@ -8,7 +8,8 @@ CREATE TABLE IF NOT EXISTS images (
     path TEXT PRIMARY KEY,
     dive TEXT REFERENCES dives (path),
     camera_sn TEXT,
-    image_md5 TEXT
+    image_md5 TEXT,
+    laser_task_id INTEGER
 );
 CREATE TABLE IF NOT EXISTS canonical_dives (
     path TEXT PRIMARY KEY,
