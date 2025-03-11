@@ -80,7 +80,7 @@ def get_project_export(project_id: int, label_studio_api_key: str, label_studio_
         Dict: LabelStudio project export
     """
     client = LabelStudio(
-        base_url=label_studio_host,
+        base_url=f"https://{label_studio_host}",
         api_key=label_studio_api_key
     )
     response = client.projects.exports.create(
