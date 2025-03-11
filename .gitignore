@@ -270,3 +270,13 @@ $RECYCLE.BIN/
 
 # Ignore dynaconf secret files
 .secrets.*
+
+mnt
+data
+filtered_raws
+!results/length/*.csv
+results
+label_studio
+lens_cal
+debug
+fake_laser_data
