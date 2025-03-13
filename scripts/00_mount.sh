@@ -4,9 +4,14 @@ if ! findmnt ./data; then
     sudo mount -v -t cifs -o credentials=$E4E_NAS_CREDS,uid=`whoami`,vers=1.0,ro "//e4e-nas.ucsd.edu/fishsense_data/REEF/data" ./data
 fi
 
-mkdir -p ./label_studio
-if ! findmnt ./label_studio; then
-    sudo mount -v -t cifs -o credentials=$E4E_NAS_CREDS,uid=`whoami`,vers=1.0 "//e4e-nas.ucsd.edu/label_studio/2025-03_reef_laser" ./label_studio
+mkdir -p ./label_studio_laser
+if ! findmnt ./label_studio_laser; then
+    sudo mount -v -t cifs -o credentials=$E4E_NAS_CREDS,uid=`whoami`,vers=1.0 "//e4e-nas.ucsd.edu/label_studio/2025-03_reef_laser" ./label_studio_laser
+fi
+
+mkdir -p ./label_studio_headtail
+if ! findmnt ./label_studio_headtail; then
+    sudo mount -v -t cifs -o credentials=$E4E_NAS_CREDS,uid=`whoami`,vers=1.0 "//e4e-nas.ucsd.edu/label_studio/2025-03_reef_headtail" ./label_studio_headtail
 fi
 
 mkdir -p ./lens_cal

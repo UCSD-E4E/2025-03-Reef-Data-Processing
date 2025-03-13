@@ -276,7 +276,8 @@ data
 filtered_raws
 !results/length/*.csv
 results
-label_studio
+label_studio_laser
+label_studio_headtail
 lens_cal
 debug
 fake_laser_data

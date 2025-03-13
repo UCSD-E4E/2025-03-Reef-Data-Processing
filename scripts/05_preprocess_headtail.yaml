@@ -8,7 +8,7 @@ jobs:
         - /home/ubuntu/data/2023-09-07 REEF Data Dump/082923_Pool Calibration/082929_Slate_FSL01/**/*.ORF
       lens-calibration: /home/ubuntu/lens_cal/FSL-01D/fsl-01d-lens-raw.pkg
       format: JPG
-      output: /home/ubuntu/label_studio/2023-09-07 REEF Data Dump
+      output: /home/ubuntu/label_studio_headtail/2023-09-07 REEF Data Dump
 
   - display_name: FSL02
     job_name: preprocess
@@ -19,7 +19,7 @@ jobs:
         - /home/ubuntu/data/2023-09-07 REEF Data Dump/082923_Pool Calibration/082923_Slate_FSL02/**/*.ORF
       lens-calibration: /home/ubuntu/lens_cal/FSL-02D/fsl-02d-lens-raw.pkg
       format: JPG
-      output: /home/ubuntu/label_studio/2023-09-07 REEF Data Dump
+      output: /home/ubuntu/label_studio_headtail/2023-09-07 REEF Data Dump
 
   - display_name: FSL03
     job_name: preprocess
@@ -29,7 +29,7 @@ jobs:
         - /home/ubuntu/data/2023-09-07 REEF Data Dump/082923_Pool Calibration/082923_Slate_FSL03/**/*.ORF
       lens-calibration: /home/ubuntu/lens_cal/FSL-03D/fsl-03d-lens-raw.pkg
       format: JPG
-      output: /home/ubuntu/label_studio/2023-09-07 REEF Data Dump
+      output: /home/ubuntu/label_studio_headtail/2023-09-07 REEF Data Dump
 
   - display_name: FSL04
     job_name: preprocess
@@ -40,7 +40,7 @@ jobs:
         - /home/ubuntu/data/2023-09-07 REEF Data Dump/082923_Pool Calibration/082929_FishModels_FSL04/**/*.ORF
       lens-calibration: /home/ubuntu/lens_cal/FSL-04D/fsl-04d-lens-raw.pkg
       format: JPG
-      output: /home/ubuntu/label_studio/2023-09-07 REEF Data Dump
+      output: /home/ubuntu/label_studio_headtail/2023-09-07 REEF Data Dump
 
   - display_name: FSL05
     job_name: preprocess
@@ -50,7 +50,7 @@ jobs:
         - /home/ubuntu/data/2023-09-07 REEF Data Dump/082923_Pool Calibration/082929_Slate_FSL05/**/*.ORF
       lens-calibration: /home/ubuntu/lens_cal/FSL-05D/fsl-05d-lens-raw.pkg
       format: JPG
-      output: /home/ubuntu/label_studio/2023-09-07 REEF Data Dump
+      output: /home/ubuntu/label_studio_headtail/2023-09-07 REEF Data Dump
 
   - display_name: FSL06
     job_name: preprocess
@@ -65,7 +65,7 @@ jobs:
         - /home/ubuntu/data/2025-02-10 REEF Data Dump SMILE 6/081924_Molasses Northstar Dive2_FSL06/**/*.ORF
       lens-calibration: /home/ubuntu/lens_cal/FSL-06D/fsl-06d-lens-raw.pkg
       format: JPG
-      output: /home/ubuntu/label_studio
+      output: /home/ubuntu/label_studio_headtail
 
   - display_name: FSL07
     job_name: preprocess
@@ -76,4 +76,4 @@ jobs:
         - /home/ubuntu/data/2023-09-07 REEF Data Dump/082923_Pool Calibration/082929_FishModels_FSL07/**/*.ORF
       lens-calibration: /home/ubuntu/lens_cal/FSL-07D/fsl-07d-lens-raw.pkg
       format: JPG
-      output: /home/ubuntu/label_studio/2023-09-07 REEF Data Dump
+      output: /home/ubuntu/label_studio_headtail/2023-09-07 REEF Data Dump
