@@ -20,6 +20,13 @@ if [ -d './label_studio_headtail' ]; then
     rmdir ./label_studio_headtail
 fi
 
+if mountpoint -q ./reef; then
+    sudo umount -f -l ./reef
+fi
+if [ -d './reef' ]; then
+    rmdir ./reef
+fi
+
 if mountpoint -q ./data; then
     sudo umount -f -l ./data
 fi

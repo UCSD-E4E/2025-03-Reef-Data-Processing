@@ -1,7 +1,12 @@
 #!/bin/bash
 mkdir -p ./data
 if ! findmnt ./data; then
-    sudo mount -v -t cifs -o credentials=$E4E_NAS_CREDS,uid=`whoami`,vers=1.0,ro "//e4e-nas.ucsd.edu/fishsense_data/REEF/data" ./data
+    sudo mount -v -t cifs -o credentials=$E4E_NAS_CREDS,uid=`whoami`,ro "//e4e-nas.ucsd.edu/fishsense_data/REEF/data" ./data
+fi
+
+mkdir -p ./reef
+if ! findmnt ./reef; then
+    sudo mount -v -t cifs -o credentials=$E4E_NAS_CREDS,uid=`whoami`,ro "//e4e-nas.ucsd.edu/fishsense_data/REEF" ./reef
 fi
 
 mkdir -p ./label_studio_laser
@@ -16,5 +21,5 @@ fi
 
 mkdir -p ./lens_cal
 if ! findmnt ./lens_cal; then
-    sudo mount -v -t cifs -o credentials=$E4E_NAS_CREDS,uid=`whoami`,vers=1.0,ro "//e4e-nas.ucsd.edu/fishsense/Fishsense Lite Calibration Parameters" ./lens_cal
+    sudo mount -v -t cifs -o credentials=$E4E_NAS_CREDS,uid=`whoami`,ro "//e4e-nas.ucsd.edu/fishsense/Fishsense Lite Calibration Parameters" ./lens_cal
 fi
