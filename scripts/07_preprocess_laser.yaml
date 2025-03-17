@@ -1,70 +1,77 @@
 jobs:
   - display_name: Alligator_FSL01
-    job_name: preprocess
+    job_name: preprocess_with_laser
     parameters: 
       overwrite: true
       data:
         - /home/ubuntu/data/2025-03-13 Reef Data Dump/121024_Alligator_FSL01/**/*.ORF
       lens-calibration: /home/ubuntu/lens_cal/FSL-01D/fsl-01d-lens-raw.pkg
       format: JPG
-      output: /home/ubuntu/label_studio_laser/2025-03-13 Reef Data Dump
+      laser-labels: /home/ubuntu/scripts/07_preprocess_project_39.json
+      output: /home/ubuntu/label_studio_headtail/2025-03-13 Reef Data Dump
 
   - display_name: Alligator_FSL02
-    job_name: preprocess
+    job_name: preprocess_with_laser
     parameters: 
       overwrite: true
       data:
         - /home/ubuntu/data/2025-03-13 Reef Data Dump/121024_Alligator_FSL02/**/*.ORF
       lens-calibration: /home/ubuntu/lens_cal/FSL-02D/fsl-02d-lens-raw.pkg
       format: JPG
-      output: /home/ubuntu/label_studio_laser/2025-03-13 Reef Data Dump
+      laser-labels: /home/ubuntu/scripts/07_preprocess_project_39.json
+      output: /home/ubuntu/label_studio_headtail/2025-03-13 Reef Data Dump
 
   - display_name: Alligator_FSL03
-    job_name: preprocess
+    job_name: preprocess_with_laser
     parameters: 
       overwrite: true
       data:
         - /home/ubuntu/data/2025-03-13 Reef Data Dump/121024_Alligator_FSL03/**/*.ORF
       lens-calibration: /home/ubuntu/lens_cal/FSL-03D/fsl-03d-lens-raw.pkg
       format: JPG
-      output: /home/ubuntu/label_studio_laser/2025-03-13 Reef Data Dump
+      laser-labels: /home/ubuntu/scripts/07_preprocess_project_39.json
+      output: /home/ubuntu/label_studio_headtail/2025-03-13 Reef Data Dump
     
   - display_name: Alligator_FSL03
-    job_name: preprocess
+    job_name: preprocess_with_laser
     parameters: 
       overwrite: true
       data:
         - /home/ubuntu/data/2025-03-13 Reef Data Dump/121024_Alligator_FSL03/**/*.ORF
       lens-calibration: /home/ubuntu/lens_cal/FSL-03D/fsl-03d-lens-raw.pkg
       format: JPG
-      output: /home/ubuntu/label_studio_laser/2025-03-13 Reef Data Dump
+      laser-labels: /home/ubuntu/scripts/07_preprocess_project_39.json
+      output: /home/ubuntu/label_studio_headtail/2025-03-13 Reef Data Dump
 
   - display_name: Alligator_FSL04
-    job_name: preprocess
+    job_name: preprocess_with_laser
     parameters: 
       overwrite: true
       data:
         - /home/ubuntu/data/2025-03-13 Reef Data Dump/121024_Alligator_FSL04/**/*.ORF
       lens-calibration: /home/ubuntu/lens_cal/FSL-04D/fsl-04d-lens-raw.pkg
       format: JPG
-      output: /home/ubuntu/label_studio_laser/2025-03-13 Reef Data Dump
+      laser-labels: /home/ubuntu/scripts/07_preprocess_project_39.json
+      output: /home/ubuntu/label_studio_headtail/2025-03-13 Reef Data Dump
 
   - display_name: Alligator_FSL05
-    job_name: preprocess
+    job_name: preprocess_with_laser
     parameters: 
       overwrite: true
       data:
         - /home/ubuntu/data/2025-03-13 Reef Data Dump/121024_Alligator_FSL05/**/*.ORF
       lens-calibration: /home/ubuntu/lens_cal/FSL-05D/fsl-05d-lens-raw.pkg
       format: JPG
-      output: /home/ubuntu/label_studio_laser/2025-03-13 Reef Data Dump
+      laser-labels: /home/ubuntu/scripts/07_preprocess_project_39.json
+      output: /home/ubuntu/label_studio_headtail/2025-03-13 Reef Data Dump
 
   - display_name: Alligator_FSL06
-    job_name: preprocess
+    job_name: preprocess_with_laser
     parameters: 
       overwrite: true
       data:
         - /home/ubuntu/data/2025-03-13 Reef Data Dump/121024_Alligator_FSL06/**/*.ORF
       lens-calibration: /home/ubuntu/lens_cal/FSL-06D/fsl-06d-lens-raw.pkg
       format: JPG
-      output: /home/ubuntu/label_studio_laser/2025-03-13 Reef Data Dump
+      laser-labels: /home/ubuntu/scripts/07_preprocess_project_39.json
+      output: /home/ubuntu/label_studio_headtail/2025-03-13 Reef Data Dump
