@@ -5,5 +5,5 @@ docker run --rm -it --gpus all -e NVIDIA_DRIVER_CAPABILITIES=all \
     -v ./label_studio_laser:/home/ubuntu/label_studio_laser \
     -v ./label_studio_headtail:/home/ubuntu/label_studio_headtail \
     -v ./scripts:/home/ubuntu/scripts:ro \
-    --memory='24G' \
+    --memory='300G' \
     --shm-size=10.24gb `whoami`/fishsense-lite
