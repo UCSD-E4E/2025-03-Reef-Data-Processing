@@ -4,6 +4,11 @@ if ! findmnt ./data; then
     sudo mount -v -t cifs -o vers=3.1.1,credentials=$E4E_NAS_CREDS,uid=`whoami`,ro "//e4e-nas.ucsd.edu/fishsense_data/REEF/data" ./data
 fi
 
+mkdir -p ./fishsense_data
+if ! findmnt ./fishsense_data; then
+    sudo mount -v -t cifs -o vers=3.1.1,credentials=$E4E_NAS_CREDS,uid=`whoami`,ro "//e4e-nas.ucsd.edu/fishsense_data" ./fishsense_data
+fi
+
 mkdir -p ./reef
 if ! findmnt ./reef; then
     sudo mount -v -t cifs -o vers=3.1.1,credentials=$E4E_NAS_CREDS,uid=`whoami`,ro "//e4e-nas.ucsd.edu/fishsense_data/REEF" ./reef
