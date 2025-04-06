@@ -13,6 +13,13 @@ if [ -d './label_studio_laser' ]; then
     rmdir ./label_studio_laser
 fi
 
+if mountpoint -q ./label_studio_laser_low; then
+    sudo umount -f -l ./label_studio_laser_low
+fi
+if [ -d './label_studio_laser_low' ]; then
+    rmdir ./label_studio_laser_low
+fi
+
 if mountpoint -q ./label_studio_headtail; then
     sudo umount -f -l ./label_studio_headtail
 fi
